@@ -1,0 +1,2 @@
+# LinearLightsOutLab
+Lab 2
