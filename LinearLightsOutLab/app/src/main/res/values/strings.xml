@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">LinearLightsOutLab</string>
+    <string name="app_name">Lights Out</string>
+    <string name="number_of_turns">Make the Buttons Match!</string>
+    <string name="new_game">New Game</string>
 </resources>
