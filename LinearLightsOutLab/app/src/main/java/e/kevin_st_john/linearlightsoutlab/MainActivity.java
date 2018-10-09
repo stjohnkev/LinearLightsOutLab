@@ -38,6 +38,23 @@ public class MainActivity extends AppCompatActivity {
     private void upDateView() {
         //mGameStateTextView.setText(mGame.stringForGameState());
 
+        //check for win and if so update text
+        if(mGame.checkForWin()){
+            mGameStateTextView.setText("You Won!");
+
+            //disable the 
+        }
+        else{
+            int numOfTries = mGame.getNumPresses();
+            String intAsString = Integer.toString(numOfTries);
+
+            if(numOfTries!=0){
+                mGameStateTextView.setText("You have taken " + intAsString + " turns");
+            }
+
+
+        }
+
 
         for(int i=0;i<7;i++){
             // mButtons[i].setText(mGame.stringForButtonAtIndex(i));
@@ -47,5 +64,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void pressedButton(View view){
 
+        String tagAsStr = view.getTag().toString();
+        int tagAsInt = Integer.parseInt(tagAsStr);
+        // Log.d("TTT", "You have pressed index " + tagAsInt);
+
+        //Toast.makeText(this, "You pressed index " + tagAsInt, Toast.LENGTH_SHORT).show();
+
+        mGame.pressedButtonAtIndex(tagAsInt);
+        upDateView();
+
+    }
+
+    public void pressedNewGame(View view){
+        mGameStateTextView.setText("Make the Buttons Match!");
+        mGame= new LightsOutGame(7);
+        upDateView();
     }
 }
