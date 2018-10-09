@@ -42,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
         if(mGame.checkForWin()){
             mGameStateTextView.setText("You Won!");
 
-            //disable the 
+            //disable the buttons
+            for(int i=0; i<7;i++){
+                mButtons[i].setEnabled(false);
+            }
         }
         else{
             int numOfTries = mGame.getNumPresses();
@@ -78,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
     public void pressedNewGame(View view){
         mGameStateTextView.setText("Make the Buttons Match!");
         mGame= new LightsOutGame(7);
+
+        for(int i=0; i<7;i++){
+            mButtons[i].setEnabled(true);
+        }
         upDateView();
     }
 }
